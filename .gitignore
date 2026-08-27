@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Local environment
+.env
+.venv/
+venv/
+
+# Temporary files
+*.tmp
+
+# Large raw dataset
+Data/Raw/who_health_expenditure.xlsx
+
+# Processed data
+Data/Processed/
