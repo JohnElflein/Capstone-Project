@@ -14,8 +14,9 @@ venv/
 # Temporary files
 *.tmp
 
-# Large raw dataset
-Data/Raw/who_health_expenditure.xlsx
+# Data files
+Data/*.csv
+Data/*.xlsx
 
 # Processed data
 Data/Processed/
