@@ -15,8 +15,8 @@ venv/
 *.tmp
 
 # Data files
-Data/*.csv
-Data/*.xlsx
+Data/
+
 
 # Processed data
 Data/Processed/
