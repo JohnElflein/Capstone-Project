@@ -1,10 +1,6 @@
 
 ## Global Non-Communicable Disease (NCD) Mortality: The Relationship Between Economic Development Healthcare Spending, and Urbanization, 2000–2021
 
-### Project Status
-
-🚧 In progress
-
 ### Overview
 
 This project investigates how non-communicable disease (NCD) mortality
