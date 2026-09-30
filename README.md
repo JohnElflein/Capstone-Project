@@ -15,17 +15,6 @@ The analysis combines data from the World Health Organization (WHO), World Bank,
 
 The six-part Tableau Story presents the overall global pattern, differences between countries, relationships with GDP, health expenditure, and urbanization, regression results, and the main conclusions.
 
-## Key Findings
-
-- **−17.5%** — Average country-level NCD mortality declined from 643.7 to 531.2 deaths per 100,000 between 2000 and 2021.
-- **171 countries** — Complete 2000–2021 observations were available for the primary cross-country regression analysis.
-- **11.5%** — The primary multiple regression model explained 11.5% of the variation in country-level NCD mortality change.
-- **Urbanization** — Showed the strongest and most consistent statistical association with NCD mortality change.
-- **GDP per capita** — Showed a negative association in the primary model, but the association was no longer statistically significant in the sensitivity analysis.
-- **Health expenditure** — Was not statistically significant in either the primary or sensitivity model.
-
-These findings indicate statistical associations rather than causal effects.
-
 ---
 
 ## Research Question
