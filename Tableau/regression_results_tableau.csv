@@ -1,7 +1,0 @@
-Model,Variable,Coefficient,CI_Lower,CI_Upper,P_Value,Significance
-Primary,GDP per capita change,-0.064529,-0.120381,-0.008678,0.023544,Significant
-Primary,Health expenditure change,0.009446,-0.008892,0.027784,0.31268,Not significant
-Primary,Urbanization change,0.715979,0.342961,1.088997,0.000169,Significant
-Sensitivity,GDP per capita change,-0.037955,-0.081762,0.005853,0.089488,Not significant
-Sensitivity,Health expenditure change,0.002774,-0.009082,0.01463,0.646519,Not significant
-Sensitivity,Urbanization change,0.660467,0.378209,0.942725,5e-06,Significant
