@@ -325,6 +325,8 @@ Because heteroscedasticity was subsequently assessed, the final interpretation u
 ## 8. Heteroscedasticity
 
 The **Breusch–Pagan test** was used to assess whether the variance of the regression residuals differed systematically across observations.
+Heteroscedasticity doesn't necessarily make regression coefficients wrong. Instead, it can make the standard errors unreliable.
+And if the standard errors are unreliable, then things like p-values, confidence intervals, statistical significance tests can also be unreliable.
 
 The results were:
 
@@ -337,7 +339,9 @@ Both p-values were greater than 0.05.
 
 Therefore, the Breusch–Pagan test did **not provide statistically significant evidence of heteroscedasticity**.
 
-Nevertheless, the final regression model was estimated using **HC3 robust standard errors**. This provides additional protection against possible heteroscedasticity and is a conservative approach for cross-country data.
+Even though the Breusch–Pagan test didn't indicate significant heteroscedasticity in the final model, I used **HC3 robust standard errors** as a precaution.
+
+HC3 robust standard errors are designed to provide more reliable inference when heteroscedasticity or influential observations might affect the usual standard errors.
 
 Importantly, using HC3 standard errors does not change the regression coefficients or R². It changes the estimated standard errors, confidence intervals, test statistics, and p-values.
 
