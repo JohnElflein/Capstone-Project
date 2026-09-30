@@ -24,3 +24,8 @@ Data/Processed/
 
 # Tableau derived data
 Tableau/*.csv
+
+# Tableau generated extracts and temporary files
+Tableau/*.hyper
+Tableau/*.twbr
+Tableau/.DS_Store

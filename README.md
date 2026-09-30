@@ -5,9 +5,26 @@
 
 This project investigates changes in non-communicable disease (NCD) mortality across countries between 2000 and 2021 and examines how these changes are associated with economic development, healthcare expenditure, and urbanization.
 
-The project was developed as the capstone project for the **Spiced Academy Data Analytics Program**.
+The project was developed as the capstone project for the Spiced Academy Data Analytics Program.
 
-The analysis combines data from the **World Health Organization (WHO)**, **World Bank**, and **United Nations (UN)** and uses SQL, Python, and Tableau to prepare, analyze, and visualize the data.
+The analysis combines data from the World Health Organization (WHO), World Bank, and United Nations (UN) and uses SQL, Python, and Tableau to prepare, analyze, and visualize the data.
+
+## 📊 Interactive Tableau Story
+
+**[View the interactive Tableau Story →](https://public.tableau.com/app/profile/john.elflein/viz/GlobalNon-CommunicableDiseaseNCDMortality20002021/GlobalNCDMortality2000-2021)**
+
+The six-part Tableau Story presents the overall global pattern, differences between countries, relationships with GDP, health expenditure, and urbanization, regression results, and the main conclusions.
+
+## Key Findings
+
+- **−17.5%** — Average country-level NCD mortality declined from 643.7 to 531.2 deaths per 100,000 between 2000 and 2021.
+- **171 countries** — Complete 2000–2021 observations were available for the primary cross-country regression analysis.
+- **11.5%** — The primary multiple regression model explained 11.5% of the variation in country-level NCD mortality change.
+- **Urbanization** — Showed the strongest and most consistent statistical association with NCD mortality change.
+- **GDP per capita** — Showed a negative association in the primary model, but the association was no longer statistically significant in the sensitivity analysis.
+- **Health expenditure** — Was not statistically significant in either the primary or sensitivity model.
+
+These findings indicate statistical associations rather than causal effects.
 
 ---
 
@@ -355,13 +372,17 @@ The analysis identifies **associations, not causal relationships**.
 
 ## Tableau Story
 
-The results were presented through an interactive Tableau Story titled:
+The results were presented through an interactive six-part Tableau Story titled:
 
-> **Global NCD Mortality, 2000–2021**
+> Global NCD Mortality, 2000–2021
 
-The story contains six main sections.
+**[View the interactive Tableau Story →](https://public.tableau.com/app/profile/john.elflein/viz/GlobalNon-CommunicableDiseaseNCDMortality20002021/GlobalNCDMortality2000-2021)**
 
-### 1. The Global Picture
+### 1. Cover / Introduction
+
+Introduces the global NCD mortality context, research question, data sources, and study period.
+
+### 2. The Global Picture
 
 Examines the overall change in average NCD mortality across countries between 2000 and 2021.
 
@@ -371,9 +392,9 @@ Average NCD mortality declined from:
 
 representing a **17.5% decrease**.
 
-The measure is an average across countries and is **not a population-weighted global mortality rate**.
+The measure is an average across countries and is not a population-weighted global mortality rate.
 
-### 2. An Uneven Global Pattern
+### 3. An Uneven Global Pattern
 
 Examines differences between countries using:
 
@@ -382,7 +403,7 @@ Examines differences between countries using:
 
 The visualization demonstrates that the overall decline was highly uneven across countries.
 
-### 3. Exploring Factors Associated with NCD Mortality Change
+### 4. Exploring Factors Associated with NCD Mortality Change
 
 Contains three scatterplots examining the relationships between NCD mortality change and:
 
@@ -392,7 +413,7 @@ Contains three scatterplots examining the relationships between NCD mortality ch
 
 Urbanization shows the clearest visual association among the three variables.
 
-### 4. What Does the Statistical Analysis Tell Us?
+### 5. What Does the Statistical Analysis Tell Us?
 
 Presents the regression results using coefficient plots with 95% confidence intervals.
 
@@ -401,15 +422,13 @@ The visualization compares:
 - Primary model
 - Sensitivity model
 
-This allows the stability of the estimated relationships to be assessed visually.
+The primary model found:
 
-### 5. Statistical Interpretation
+- GDP per capita change: negative association, statistically significant in the primary model
+- Health expenditure change: not statistically significant
+- Urbanization change: positive and statistically significant
 
-The regression results demonstrate that:
-
-- GDP is negative in the primary model but sensitive to influential observations.
-- Health expenditure is not statistically significant.
-- Urbanization remains positive and statistically significant in both models.
+The sensitivity analysis showed that the GDP association was no longer statistically significant after excluding influential observations, while the urbanization association remained statistically significant.
 
 ### 6. Key Takeaways
 
@@ -418,12 +437,11 @@ The main conclusions are:
 1. NCD mortality declined overall between 2000 and 2021.
 2. Progress was highly uneven across countries.
 3. The relationships between NCD mortality and the three explanatory factors were mixed.
-4. Urbanization showed the strongest and most robust association.
-5. GDP showed a non-robust negative association.
+4. Urbanization showed the strongest and most consistent association.
+5. The GDP association was sensitive to influential observations.
 6. Health expenditure was not statistically significant.
 7. The three variables explain only a modest share of cross-country variation.
 8. The findings represent associations rather than causal effects.
-
 ---
 
 ## Repository Structure
@@ -455,7 +473,11 @@ The main conclusions are:
     ├── .gitignore
     └── README.md
 
-The raw and processed datasets are not included in the repository.
+### Data Availability
+
+The raw and processed datasets are not included in this repository. The datasets were used locally during the analysis, and the repository contains the Python and SQL scripts used to prepare, validate, integrate, and analyze them.
+
+The Tableau Story is published separately on Tableau Public and contains the data required for the interactive visualizations.
 
 ---
 
