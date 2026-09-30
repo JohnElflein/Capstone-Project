@@ -1,6 +1,6 @@
 import pandas as pd
 
-# File paths
+# Input and output paths
 input_file = "Data/Raw/un_urban_population.xlsx"
 output_file = "Data/Processed/un_urban_population.csv"
 
@@ -16,10 +16,10 @@ df.columns = df.columns.astype(str)
 # Keep only actual countries/areas
 df = df[df["LocTypeName"] == "Country/Area"].copy()
 
-# Keep only the study period
+# Keep the study period: 2000–2021
 years = [str(year) for year in range(2000, 2022)]
 
-# Select the columns we need
+# Select the variables needed for the analysis
 columns_to_keep = [
     "Location",
     "ISO3_Code"
@@ -43,13 +43,13 @@ df = df.melt(
 # Convert year to integer
 df["year"] = df["year"].astype(int)
 
-# Sort the data
+# Sort by country and year
 df = df.sort_values(["location", "year"])
 
 # Save the prepared dataset
 df.to_csv(output_file, index=False)
 
-# Report results
+# Report processing results
 print(f"Created: {output_file}")
 print(f"Rows: {len(df)}")
 print(f"Columns: {len(df.columns)}")

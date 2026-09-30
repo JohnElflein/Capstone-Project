@@ -1,6 +1,6 @@
 import pandas as pd
 
-# File paths
+# Input and output paths
 input_file = "Data/Raw/worldbank_gdp_per_capita.csv"
 output_file = "Data/Processed/worldbank_gdp_per_capita.csv"
 
@@ -10,7 +10,7 @@ df = pd.read_csv(
     skiprows=4
 )
 
-# Keep only the columns we need
+# Keep only the columns and years needed for the analysis
 years = [str(year) for year in range(2000, 2022)]
 
 df = df[
@@ -33,19 +33,19 @@ df = df.melt(
 # Convert year to integer
 df["year"] = df["year"].astype(int)
 
-# Rename columns
+# Standardize column names
 df = df.rename(columns={
     "Country Name": "location",
     "Country Code": "code"
 })
 
-# Keep only 2000–2021
+# Sort by country and year
 df = df.sort_values(["location", "year"])
 
-# Save
+# Save processed dataset
 df.to_csv(output_file, index=False)
 
-# Report
+# Report processing results
 print(f"Created: {output_file}")
 print(f"Rows: {len(df)}")
 print(f"Columns: {len(df.columns)}")

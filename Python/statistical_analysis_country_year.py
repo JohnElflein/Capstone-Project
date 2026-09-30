@@ -1,6 +1,19 @@
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
 
-# Load analytical dataset
+from statsmodels.stats.diagnostic import het_breuschpagan
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+# ============================================================
+# NCD Mortality Capstone — Country-Year Exploratory Analysis
+# ============================================================
+
+# ------------------------------------------------------------
+# 1. Load analytical dataset
+# ------------------------------------------------------------
+
 df = pd.read_csv("Data/Processed/ncd_analytical_country_year.csv")
 
 # Basic dataset information
@@ -45,7 +58,7 @@ print("Complete observations:", len(complete))
 print("Complete countries:", complete["code"].nunique())
 
 # ============================================================
-# UNIVARIATE EXPLORATORY DATA ANALYSIS
+# 2. UNIVARIATE EXPLORATORY DATA ANALYSIS
 # ============================================================
 
 variables = [
@@ -66,8 +79,6 @@ for var in variables:
     print(f"Max:    {df[var].max():.2f}")
     print(f"Skew:   {df[var].skew():.2f}")
 
-    import matplotlib.pyplot as plt
-
 # ============================================================
 # DISTRIBUTION PLOTS
 # ============================================================
@@ -84,8 +95,6 @@ for var in variables:
 # ============================================================
 # LOG TRANSFORMATIONS
 # ============================================================
-
-import numpy as np
 
 df["log_gdp_per_capita"] = np.log(df["gdp_per_capita"])
 df["log_health_expenditure"] = np.log(
@@ -252,9 +261,6 @@ print(predictor_df.corr(method="spearman").round(3))
 # SIMPLE LINEAR REGRESSION
 # ============================================================
 
-import statsmodels.api as sm
-
-
 print("\n=== SIMPLE LINEAR REGRESSION ===")
 
 # Use complete cases for each model
@@ -352,8 +358,6 @@ print(multiple_model.summary())
 
 print("\n=== MULTICOLLINEARITY (VIF) ===")
 
-from statsmodels.stats.outliers_influence import variance_inflation_factor
-
 # Use the same observations as the multiple regression
 vif_df = regression_df[
     [
@@ -381,8 +385,6 @@ print(vif_results)
 # ============================================================
 
 print("\n=== HETEROSCEDASTICITY (BREUSCH-PAGAN TEST) ===")
-
-from statsmodels.stats.diagnostic import het_breuschpagan
 
 # Calculate Breusch-Pagan test
 bp_test = het_breuschpagan(

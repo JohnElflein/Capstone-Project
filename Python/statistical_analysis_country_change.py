@@ -1,14 +1,23 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
+from scipy.stats import pearsonr, spearmanr, skew
+from statsmodels.stats.diagnostic import het_breuschpagan
+from statsmodels.stats.outliers_influence import (
+    OLSInfluence,
+    variance_inflation_factor
+)
+
 # ============================================================
-# 1. LOAD DATA
+# NCD Mortality Capstone — Statistical Analysis
 # ============================================================
+
+# ------------------------------------------------------------
+# 1. Load analytical dataset
+# ------------------------------------------------------------
 
 file_path = "Data/Processed/ncd_analytical_country_change.csv"
-
 
 df = pd.read_csv(file_path)
 
@@ -33,9 +42,6 @@ print(df.describe().round(2))
 # ============================================================
 # 2. UNIVARIATE EDA
 # ============================================================
-
-import matplotlib.pyplot as plt
-from scipy.stats import skew
 
 variables = {
     "ncd_mortality_pct_change": "NCD mortality % change",
@@ -70,7 +76,6 @@ for var, label in variables.items():
 # 3. BIVARIATE EDA
 # ============================================================
 
-from scipy.stats import pearsonr, spearmanr
 
 outcome = "ncd_mortality_pct_change"
 
@@ -110,8 +115,6 @@ for var, label in predictors.items():
 # ============================================================
 
 print("\n=== MULTICOLLINEARITY (VIF) ===")
-
-from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 # Define explanatory variables
 X_vif = df[
@@ -175,8 +178,6 @@ print(model_change.summary())
 # REGRESSION DIAGNOSTICS — HETEROSCEDASTICITY
 # ============================================================
 
-from statsmodels.stats.diagnostic import het_breuschpagan
-
 print("\n=== HETEROSCEDASTICITY (BREUSCH-PAGAN TEST) ===")
 
 # Calculate Breusch-Pagan test
@@ -198,8 +199,6 @@ for label, value in zip(labels, bp_test):
 # ============================================================
 # REGRESSION DIAGNOSTICS — INFLUENTIAL OBSERVATIONS
 # ============================================================
-
-from statsmodels.stats.outliers_influence import OLSInfluence
 
 print("\n=== INFLUENTIAL OBSERVATIONS (COOK'S DISTANCE) ===")
 

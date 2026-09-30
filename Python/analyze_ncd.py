@@ -1,11 +1,11 @@
 import pandas as pd
 
 # =========================================================
-# NCD Mortality Capstone — Statistical Analysis
+# NCD Mortality Capstone — Dataset Inspection
 # =========================================================
 
 # ---------------------------------------------------------
-# 1. Load Dataset 2
+# 1. Load analytical dataset
 # ---------------------------------------------------------
 
 file_path = "Data/Processed/ncd_analytical_country_change.csv"

@@ -1,5 +1,12 @@
+-- ============================================================
+-- NCD Mortality Capstone — Data Validation
+-- ============================================================
 
---NCD validation
+
+-- ============================================================
+-- 1. NCD Mortality Validation
+-- ============================================================
+
 SELECT *
 FROM s_johnelflein.who_ncd_mortality
 LIMIT 10;
@@ -22,12 +29,16 @@ SELECT COUNT(DISTINCT "SpatialDimValueCode") AS countries
 FROM s_johnelflein.who_ncd_mortality;
 
 
---GDP validation
+-- ============================================================
+-- 2. GDP per Capita Validation
+-- ============================================================
+
+-- Rename imported table after validation
 ALTER TABLE s_johnelflein.worldbank_gdp_per_capita_import
 RENAME TO worldbank_gdp_per_capita;
 
 SELECT *
-FROM worldbank_gdp_per_capita wgpc;
+FROM s_johnelflein.worldbank_gdp_per_capita wgpc;
 
 SELECT COUNT(*) AS row_count
 FROM s_johnelflein.worldbank_gdp_per_capita;
@@ -52,8 +63,12 @@ SELECT
 FROM s_johnelflein.worldbank_gdp_per_capita;
 
 
---Health expenditure validation
-ALTER TABLE s_johnelflein.who_health_expenditure_import 
+-- ============================================================
+-- 3. Health Expenditure Validation
+-- ============================================================
+
+-- Rename imported table after validation
+ALTER TABLE s_johnelflein.who_health_expenditure_import
 RENAME TO who_health_expenditure;
 
 SELECT COUNT(*) AS row_count
@@ -90,7 +105,10 @@ FROM s_johnelflein.who_health_expenditure
 WHERE che_ppp_pc IS NULL;
 
 
---Urban population validation
+-- ============================================================
+-- 4. Urban Population Validation
+-- ============================================================
+
 SELECT COUNT(*) AS row_count
 FROM s_johnelflein.un_urban_population;
 
@@ -112,4 +130,3 @@ SELECT *
 FROM s_johnelflein.un_urban_population
 ORDER BY location, year
 LIMIT 10;
-
